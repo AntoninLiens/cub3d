@@ -6,13 +6,13 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 14:58:11 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/11 17:17:35 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/15 15:58:35 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void     init(void)
+void     init_params(void)
 {
     t_params vars;
 
@@ -26,8 +26,43 @@ void     init(void)
     mlx_loop(vars.mlx);
 }
 
-int     main(void)
+void    init_map(int fd, char *line)
 {
-    init();
+    int     i;
+    t_map   map;
+    char    *get_vars;
+
+    i = 0;
+    while (get_next_line(fd, &line) && i < 8)
+    {
+        if (line[0] == 'R' && ++i)
+            get_R(line);
+        else if (line[0] == 'N' && line[1] == 'O' && ++i)
+            map.NO = get_NO(line);
+        else if (line[0] == 'S' && line[1] == 'O' && ++i)
+            map.SO = get_SO(line);
+        else if (line[0] == 'W' && line[1] == 'E' && ++i)
+            map.WE = get_WE(line);
+        else if (line[0] == 'E' && line[1] == 'A' && ++i)
+            map.EA = get_EA(line);
+        else if (line[0] == 'S' && ++i)
+            map.S = get_S(line);
+        else if (line[0] == 'F' && ++i)
+            get_F(line);
+        else if (line[0] == 'C' && ++i)
+            get_C(line);
+    }
+}
+
+int     main(int argc, char **argv)
+{
+    int     fd;
+    char    *line;
+    
+    init_params();
+    if (!(fd = open("", O_RDONLY)))
+        return (0);
+    init_map(fd, line);
+    close(fd);
     return (0);
 }
