@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 19:26:00 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/15 13:15:24 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/15 18:40:45 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int     key_hook(int keycode, t_params *vars)
     else if (keycode == 124)
         turn_right(vars);
     player(*vars, 100100100);
-    printf("%d\n", keycode);
     return (0);
 }
 

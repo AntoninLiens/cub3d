@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/15 18:04:33 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/15 18:43:44 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct  s_map
     int     C1;
     int     C2;
     int     C3;
-    /***int     map;*/
+    /*int    **map;*/
 }               t_map;
 
 void    init_params(void);
@@ -61,7 +61,7 @@ void    get_F(char *line);
 void    get_C(char *line);
 
 void    player(t_params vars, int color);
-void    line(t_params *vars, int color);
+void    line(t_params *vars, int color, float j);
 
 int     key_hook(int keycode, t_params *vars);
 void    turn_left(t_params *vars);
