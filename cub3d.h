@@ -6,13 +6,14 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/15 13:45:27 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/15 18:04:33 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
+# include "./libft/libft.h"
 # include "./get_next_line/get_next_line.h"
 # include <mlx.h>
 # include <stdlib.h>
@@ -33,23 +34,35 @@ typedef struct  s_map
 {
     int     R1;
     int     R2;
-    char    NO;
-    char    SO;
-    char    WE;
-    char    EA;
-    char    S;
+    char    *NO;
+    char    *SO;
+    char    *WE;
+    char    *EA;
+    char    *S;
     int     F1;
     int     F2;
     int     F3;
     int     C1;
     int     C2;
     int     C3;
-    **int     map;
-}
+    /***int     map;*/
+}               t_map;
 
-void    init(void);
+void    init_params(void);
+
+void    init_map(int fd, char *line);
+char    *get_NO(char *line);
+char    *get_SO(char *line);
+char    *get_WE(char *line);
+char    *get_EA(char *line);
+char    *get_S(char *line);
+void    get_R(char *line);
+void    get_F(char *line);
+void    get_C(char *line);
+
 void    player(t_params vars, int color);
 void    line(t_params *vars, int color);
+
 int     key_hook(int keycode, t_params *vars);
 void    turn_left(t_params *vars);
 void    turn_right(t_params *vars);

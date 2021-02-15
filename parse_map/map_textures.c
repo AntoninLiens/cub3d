@@ -6,23 +6,106 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 15:30:05 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/15 15:58:33 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/15 17:58:04 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "cub3d.h"
+
 char    *get_NO(char *line)
 {
-    char    *dst;
     int     i;
     int     j;
 
-    i = -1;
-    j = 0;
-    while (line[++i])
-    {
-        if (line[i] == 'N' || line[i] == 'O' || line[i] == ' ')
-            i++;
-        dst[j] = line[i];
-    }
-    return (dst);
+    i = 0;
+    j = ft_strlen(line);
+    while (line[i] == ' ')
+        i++;
+    if (line[i] == 'N')
+        i++;
+    if (line[i] == 'O')
+        i++;
+    while (line[i] == ' ')
+        i++;
+    while (line[j] == ' ')
+        j--;
+    return (ft_substr(line, (unsigned int)i, (size_t)j));
+}
+
+char    *get_SO(char *line)
+{
+    int     i;
+    int     j;
+
+    i = 0;
+    j = ft_strlen(line);
+    while (line[i] == ' ')
+        i++;
+    if (line[i] == 'S')
+        i++;
+    if (line[i] == 'O')
+        i++;
+    while (line[i] == ' ')
+        i++;
+    while (line[j] == ' ')
+        j--;
+    return (ft_substr(line, (unsigned int)i, (size_t)j));
+}
+
+char    *get_WE(char *line)
+{
+    int     i;
+    int     j;
+
+    i = 0;
+    j = ft_strlen(line);
+    while (line[i] == ' ')
+        i++;
+    if (line[i] == 'W')
+        i++;
+    if (line[i] == 'E')
+        i++;
+    while (line[i] == ' ')
+        i++;
+    while (line[j] == ' ')
+        j--;
+    return (ft_substr(line, (unsigned int)i, (size_t)j));
+}
+
+char    *get_EA(char *line)
+{
+    int     i;
+    int     j;
+
+    i = 0;
+    j = ft_strlen(line);
+    while (line[i] == ' ')
+        i++;
+    if (line[i] == 'E')
+        i++;
+    if (line[i] == 'A')
+        i++;
+    while (line[i] == ' ')
+        i++;
+    while (line[j] == ' ')
+        j--;
+    return (ft_substr(line, (unsigned int)i, (size_t)j));
+}
+
+char    *get_S(char *line)
+{
+    int     i;
+    int     j;
+
+    i = 0;
+    j = ft_strlen(line);
+    while (line[i] == ' ')
+        i++;
+    if (line[i] == 'S')
+        i++;
+    while (line[i] == ' ')
+        i++;
+    while (line[j] == ' ')
+        j--;
+    return (ft_substr(line, (unsigned int)i, (size_t)j));
 }

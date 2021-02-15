@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 14:58:11 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/15 15:58:35 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/15 18:18:17 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void    init_map(int fd, char *line)
 {
     int     i;
     t_map   map;
-    char    *get_vars;
 
     i = 0;
     while (get_next_line(fd, &line) && i < 8)
@@ -58,11 +57,22 @@ int     main(int argc, char **argv)
 {
     int     fd;
     char    *line;
+    t_map   map;
     
-    init_params();
-    if (!(fd = open("", O_RDONLY)))
+    line = NULL;
+    if (argc <= 0)
+        return (0);
+    if (!(fd = open(argv[1], O_RDONLY)))
         return (0);
     init_map(fd, line);
     close(fd);
+    printf("%d\n", map.R1);
+    printf("%d\n", map.R2);
+    printf("%d\n", map.F1);
+    printf("%d\n", map.F2);
+    printf("%d\n", map.F3);
+    printf("%d\n", map.C1);
+    printf("%d\n", map.C2);
+    printf("%d\n", map.C3);
     return (0);
 }
