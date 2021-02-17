@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 12:33:38 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/02 15:50:57 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/17 13:36:28 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_save(const char *str)
 	while (str[++i])
 		if (str[i] == '\n')
 		{
-			dst = ft_strdup(str + i + 1);
+			dst = ft_strdup_gnl(str + i + 1);
 			free((void *)str);
 			return (dst);
 		}
@@ -49,7 +49,7 @@ char	*ft_line(char *str)
 	s = 0;
 	while (str[s] && str[s] != '\n')
 		s++;
-	if (!(dst = (char *)ft_calloc(sizeof(char), s + 1)))
+	if (!(dst = (char *)ft_calloc_gnl(sizeof(char), s + 1)))
 		return (NULL);
 	while (s--)
 		dst[s] = str[s];
@@ -86,7 +86,7 @@ int		get_next_line(int fd, char **line)
 			return (-1);
 		}
 		buf[reader] = 0;
-		if (!(save = ft_strjoin(save, buf)))
+		if (!(save = ft_strjoin_gnl(save, buf)))
 			return (-1);
 	}
 	free(buf);

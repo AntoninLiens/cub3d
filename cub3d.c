@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 14:58:11 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/15 18:26:13 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/17 13:40:41 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,45 +26,41 @@ void     init_params(void)
     mlx_loop(vars.mlx);
 }
 
-void    init_map(int fd, char *line)
+void    init_map(char **argv)
 {
-    int     i;
+    int     fd;
     t_map   map;
+    char    *line;
 
-    i = 0;
-    while (get_next_line(fd, &line) && i < 8)
+    if (!(fd = open(argv[1], O_RDONLY)))
+        return ;
+    while (get_next_line(fd, &line))
     {
-        if (line[0] == 'R' && ++i)
+        if (line[0] == 'R')
             get_R(line);
-        else if (line[0] == 'N' && line[1] == 'O' && ++i)
+        else if (line[0] == 'N' && line[1] == 'O')
             map.NO = get_NO(line);
-        else if (line[0] == 'S' && line[1] == 'O' && ++i)
+        else if (line[0] == 'S' && line[1] == 'O')
             map.SO = get_SO(line);
-        else if (line[0] == 'W' && line[1] == 'E' && ++i)
+        else if (line[0] == 'W' && line[1] == 'E')
             map.WE = get_WE(line);
-        else if (line[0] == 'E' && line[1] == 'A' && ++i)
+        else if (line[0] == 'E' && line[1] == 'A')
             map.EA = get_EA(line);
-        else if (line[0] == 'S' && ++i)
+        else if (line[0] == 'S')
             map.S = get_S(line);
-        else if (line[0] == 'F' && ++i)
+        else if (line[0] == 'F')
             get_F(line);
-        else if (line[0] == 'C' && ++i)
+        else if (line[0] == 'C')
             get_C(line);
     }
+    close (fd);
 }
 
-int     main(void/*int argc, char **argv*/)
-{
-/*    int     fd;
-    char    *line;
-    
-    line = NULL;
+int     main(int argc, char **argv)
+{   
     if (argc <= 0)
         return (0);
-    if (!(fd = open(argv[1], O_RDONLY)))
-        return (0);
-    init_map(fd, line);
-    close(fd);*/
+    init_map(argv);
     init_params();
     return (0);
 }

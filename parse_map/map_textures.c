@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 15:30:05 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/15 17:58:04 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/17 13:04:27 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ char    *get_NO(char *line)
 
     i = 0;
     j = ft_strlen(line);
-    while (line[i] == ' ')
-        i++;
     if (line[i] == 'N')
         i++;
     if (line[i] == 'O')
@@ -39,8 +37,6 @@ char    *get_SO(char *line)
 
     i = 0;
     j = ft_strlen(line);
-    while (line[i] == ' ')
-        i++;
     if (line[i] == 'S')
         i++;
     if (line[i] == 'O')
@@ -59,8 +55,6 @@ char    *get_WE(char *line)
 
     i = 0;
     j = ft_strlen(line);
-    while (line[i] == ' ')
-        i++;
     if (line[i] == 'W')
         i++;
     if (line[i] == 'E')
@@ -79,8 +73,6 @@ char    *get_EA(char *line)
 
     i = 0;
     j = ft_strlen(line);
-    while (line[i] == ' ')
-        i++;
     if (line[i] == 'E')
         i++;
     if (line[i] == 'A')

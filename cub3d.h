@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/15 18:43:44 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/17 13:40:57 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <stdio.h>
 # include <math.h>
 # include <fcntl.h>
+# include <sys/types.h>
+# include <sys/stat.h>
 
 typedef struct  s_params
 {
@@ -50,7 +52,7 @@ typedef struct  s_map
 
 void    init_params(void);
 
-void    init_map(int fd, char *line);
+void    init_map(char **argv);
 char    *get_NO(char *line);
 char    *get_SO(char *line);
 char    *get_WE(char *line);

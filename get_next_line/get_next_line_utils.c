@@ -6,26 +6,26 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 16:13:32 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/02 15:46:38 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/17 13:37:27 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup_gnl(const char *s1)
 {
 	char	*str;
 	size_t	i;
 
 	i = -1;
-	if (!(str = (char *)ft_calloc(sizeof(char), ft_strlen(s1) + 1)))
+	if (!(str = (char *)ft_calloc_gnl(sizeof(char), ft_strlen_gnl(s1) + 1)))
 		return (NULL);
 	while (s1[++i])
 		str[i] = s1[i];
 	return (str);
 }
 
-size_t	ft_strlen(const char *a)
+size_t	ft_strlen_gnl(const char *a)
 {
 	size_t	i;
 
@@ -37,7 +37,7 @@ size_t	ft_strlen(const char *a)
 	return (i);
 }
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy_gnl(void *dst, const void *src, size_t n)
 {
 	char	*ptrsrc;
 	char	*ptrdst;
@@ -51,7 +51,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	return (dst);
 }
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_calloc_gnl(size_t count, size_t size)
 {
 	char	*dst;
 	size_t	i;
@@ -64,21 +64,21 @@ void	*ft_calloc(size_t count, size_t size)
 	return (dst);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin_gnl(char const *s1, char const *s2)
 {
 	char	*dst;
 	size_t	s;
 
-	s = ft_strlen(s1) + ft_strlen(s2) + 1;
-	if (!(dst = (char *)ft_calloc(sizeof(char), s)))
+	s = ft_strlen_gnl(s1) + ft_strlen_gnl(s2) + 1;
+	if (!(dst = (char *)ft_calloc_gnl(sizeof(char), s)))
 	{
 		if (s1)
 			free((void *)s1);
 		free((void *)s2);
 		return (NULL);
 	}
-	ft_memcpy(dst, s1, ft_strlen(s1));
-	ft_memcpy(dst + ft_strlen(s1), s2, ft_strlen(s2));
+	ft_memcpy_gnl(dst, s1, ft_strlen_gnl(s1));
+	ft_memcpy_gnl(dst + ft_strlen_gnl(s1), s2, ft_strlen_gnl(s2));
 	free((void *)s1);
 	return (dst);
 }
