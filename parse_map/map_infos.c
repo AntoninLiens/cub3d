@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 17:44:23 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/15 18:08:27 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/17 16:23:14 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,16 @@ void    get_C(char *line)
     map.C1 = ft_atoi(str[0]);
     map.C2 = ft_atoi(str[1]);
     map.C3 = ft_atoi(str[2]);
+}
+
+char    *get_textures(char *line, int i)
+{
+    int     j;
+
+    j = ft_strlen(line);
+    while (line[i] == ' ')
+        i++;
+    while (line[j] == ' ')
+        j--;
+    return (ft_substr(line, (unsigned int)i, (size_t)j));
 }

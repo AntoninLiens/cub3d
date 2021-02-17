@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 14:58:11 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/17 13:40:41 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/17 16:26:17 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,34 @@ void     init_params(void)
 
 void    init_map(char **argv)
 {
+    int     i;
     int     fd;
     t_map   map;
     char    *line;
 
+    i = 0;
     if (!(fd = open(argv[1], O_RDONLY)))
         return ;
     while (get_next_line(fd, &line))
     {
-        if (line[0] == 'R')
+        if (line[0] == 'R' && i++)
             get_R(line);
-        else if (line[0] == 'N' && line[1] == 'O')
-            map.NO = get_NO(line);
-        else if (line[0] == 'S' && line[1] == 'O')
-            map.SO = get_SO(line);
-        else if (line[0] == 'W' && line[1] == 'E')
-            map.WE = get_WE(line);
-        else if (line[0] == 'E' && line[1] == 'A')
-            map.EA = get_EA(line);
-        else if (line[0] == 'S')
-            map.S = get_S(line);
-        else if (line[0] == 'F')
+        else if (line[0] == 'F' && i++)
             get_F(line);
-        else if (line[0] == 'C')
+        else if (line[0] == 'C' && i++)
             get_C(line);
+        else if (line[0] == 'N' && line[1] == 'O' && i++)
+            map.NO = get_textures(line, 2);
+        else if (line[0] == 'S' && line[1] == 'O' && i++)
+            map.SO = get_textures(line, 2);
+        else if (line[0] == 'W' && line[1] == 'E' && i++)
+            map.WE = get_textures(line, 2);
+        else if (line[0] == 'E' && line[1] == 'A' && i++)
+            map.EA = get_textures(line, 2);
+        else if (line[0] == 'S' && i++)
+            map.S = get_textures(line, 1);
+        //else if (i >= 8)
+        //    get_map(line);
     }
     close (fd);
 }

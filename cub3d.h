@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/17 13:40:57 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/17 16:24:05 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,7 @@ typedef struct  s_map
 void    init_params(void);
 
 void    init_map(char **argv);
-char    *get_NO(char *line);
-char    *get_SO(char *line);
-char    *get_WE(char *line);
-char    *get_EA(char *line);
-char    *get_S(char *line);
+char    *get_textures(char *line, int i);
 void    get_R(char *line);
 void    get_F(char *line);
 void    get_C(char *line);
