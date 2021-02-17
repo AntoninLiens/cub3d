@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/17 16:24:05 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/17 17:18:49 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,13 @@ typedef struct  s_map
 {
     int     R1;
     int     R2;
+    int     F;
+    int     C;
     char    *NO;
     char    *SO;
     char    *WE;
     char    *EA;
     char    *S;
-    int     F1;
-    int     F2;
-    int     F3;
-    int     C1;
-    int     C2;
-    int     C3;
     /*int    **map;*/
 }               t_map;
 
@@ -54,9 +50,9 @@ void    init_params(void);
 
 void    init_map(char **argv);
 char    *get_textures(char *line, int i);
-void    get_R(char *line);
-void    get_F(char *line);
-void    get_C(char *line);
+void    get_R(char *line, t_map *map);
+void    get_F(char *line, t_map *map);
+void    get_C(char *line, t_map *map);
 
 void    player(t_params vars, int color);
 void    line(t_params *vars, int color, float j);

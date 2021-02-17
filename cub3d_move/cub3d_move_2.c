@@ -6,11 +6,11 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 20:00:36 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/11 16:47:08 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/17 16:56:18 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void    ft_w(t_params *vars)
 {

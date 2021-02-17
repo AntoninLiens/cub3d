@@ -6,11 +6,11 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 16:21:19 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/15 18:39:59 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/17 16:56:28 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void    player(t_params vars, int color)
 {
