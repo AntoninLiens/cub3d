@@ -6,15 +6,21 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 17:44:23 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/21 12:09:51 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/21 12:27:22 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int		create_rgb(int r, int g, int b)
+int		get_r_f_c(char *line, t_map map)
 {
-	return (r << 16 | g << 8 | b);
+	if (line[0] == 'R')
+		get_r(line, &map);
+	else if (line[0] == 'F')
+		get_f(line, &map);
+	else if (line[0] == 'C')
+		get_c(line, &map);
+	return (1);
 }
 
 void	get_r(char *line, t_map *map)

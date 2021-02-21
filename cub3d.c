@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 14:58:11 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/21 12:10:53 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/21 12:27:20 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,8 @@ void	init_map(char **argv)
 		return ;
 	while (get_next_line(fd, &line) && i < 8)
 	{
-		if (line[0] == 'R' && ++i)
-			get_r(line, &map);
-		else if (line[0] == 'F' && ++i)
-			get_f(line, &map);
-		else if (line[0] == 'C' && ++i)
-			get_c(line, &map);
-		else if (line[0] == 'N' && line[1] == 'O' && ++i)
+		i += get_r_f_c(line, map);
+		if (line[0] == 'N' && line[1] == 'O' && ++i)
 			map.no = get_textures(line, 2);
 		else if (line[0] == 'S' && line[1] == 'O' && ++i)
 			map.so = get_textures(line, 2);

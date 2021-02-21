@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/21 12:11:49 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/21 12:33:06 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,12 @@ void			init_params(void);
 
 void			init_map(char **argv);
 char			*get_textures(char *line, int i);
+int				get_r_f_c(char *line, t_map map);
 void			get_r(char *line, t_map *map);
 void			get_f(char *line, t_map *map);
 void			get_c(char *line, t_map *map);
 
+int				create_rgb(int r, int g, int b);
 void			player(t_params vars, int color);
 void			line(t_params *vars, int color, float j);
 
