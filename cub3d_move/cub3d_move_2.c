@@ -6,60 +6,60 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 20:00:36 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/17 16:56:18 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/21 12:02:37 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void    ft_w(t_params *vars)
+void	ft_w(t_params *vars)
 {
-    float d_x;
-    float d_y;
+	float dx;
+	float dy;
 
-    player(*vars, 0);
-    d_x = cos(M_PI / 180 * vars->angle) * 10;
-    d_y = sin(M_PI / 180 * vars->angle) * 10;
-    vars->p_x += d_x;
-    vars->p_y -= d_y;
-    player(*vars, 100100100);
+	player(*vars, 0);
+	dx = cos(M_PI / 180 * vars->angle) * 10;
+	dy = sin(M_PI / 180 * vars->angle) * 10;
+	vars->px += dx;
+	vars->py -= dy;
+	player(*vars, 100100100);
 }
 
-void    ft_a(t_params *vars)
+void	ft_a(t_params *vars)
 {
-    float d_x;
-    float d_y;
+	float dx;
+	float dy;
 
-    player(*vars, 0);
-    d_x = cos(M_PI / 180 * vars->angle) * 10;
-    d_y = sin(M_PI / 180 * vars->angle) * 10;
-    vars->p_x -= d_y;
-    vars->p_y -= d_x;
-    player(*vars, 100100100);
+	player(*vars, 0);
+	dx = cos(M_PI / 180 * vars->angle) * 10;
+	dy = sin(M_PI / 180 * vars->angle) * 10;
+	vars->px -= dy;
+	vars->py -= dx;
+	player(*vars, 100100100);
 }
 
-void    ft_s(t_params *vars)
+void	ft_s(t_params *vars)
 {
-    float d_x;
-    float d_y;
+	float dx;
+	float dy;
 
-    player(*vars, 0);
-    d_x = cos(M_PI / 180 * vars->angle) * 10;
-    d_y = sin(M_PI / 180 * vars->angle) * 10;
-    vars->p_x -= d_x;
-    vars->p_y += d_y;
-    player(*vars, 100100100);
+	player(*vars, 0);
+	dx = cos(M_PI / 180 * vars->angle) * 10;
+	dy = sin(M_PI / 180 * vars->angle) * 10;
+	vars->px -= dx;
+	vars->py += dy;
+	player(*vars, 100100100);
 }
 
-void    ft_d(t_params *vars)
+void	ft_d(t_params *vars)
 {
-    float d_x;
-    float d_y;
+	float dx;
+	float dy;
 
-    player(*vars, 0);
-    d_x = cos(M_PI / 180 * vars->angle) * 10;
-    d_y = sin(M_PI / 180 * vars->angle) * 10;
-    vars->p_x += d_y;
-    vars->p_y += d_x;
-    player(*vars, 100100100);
+	player(*vars, 0);
+	dx = cos(M_PI / 180 * vars->angle) * 10;
+	dy = sin(M_PI / 180 * vars->angle) * 10;
+	vars->px += dy;
+	vars->py += dx;
+	player(*vars, 100100100);
 }
