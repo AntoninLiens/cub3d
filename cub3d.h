@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/21 12:33:06 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/21 13:34:53 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ typedef struct	s_map
 void			init_params(void);
 
 void			init_map(char **argv);
+int				get_infos_map(char *line, t_map *map);
 char			*get_textures(char *line, int i);
-int				get_r_f_c(char *line, t_map map);
 void			get_r(char *line, t_map *map);
 void			get_f(char *line, t_map *map);
 void			get_c(char *line, t_map *map);

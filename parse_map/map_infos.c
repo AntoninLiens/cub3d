@@ -6,21 +6,34 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 17:44:23 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/21 12:27:22 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/21 13:32:59 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int		get_r_f_c(char *line, t_map map)
+int		get_infos_map(char *line, t_map *map)
 {
-	if (line[0] == 'R')
-		get_r(line, &map);
-	else if (line[0] == 'F')
-		get_f(line, &map);
-	else if (line[0] == 'C')
-		get_c(line, &map);
-	return (1);
+	int i;
+
+	i = 0;
+	if (line[0] == 'R' && ++i)
+		get_r(line, map);
+	else if (line[0] == 'F' && ++i)
+		get_f(line, map);
+	else if (line[0] == 'C' && ++i)
+		get_c(line, map);
+	else if (line[0] == 'N' && line[1] == 'O' && ++i)
+		map->no = get_textures(line, 2);
+	else if (line[0] == 'S' && line[1] == 'O' && ++i)
+		map->so = get_textures(line, 2);
+	else if (line[0] == 'W' && line[1] == 'E' && ++i)
+		map->we = get_textures(line, 2);
+	else if (line[0] == 'E' && line[1] == 'A' && ++i)
+		map->ea = get_textures(line, 2);
+	else if (line[0] == 'S' && ++i)
+		map->s = get_textures(line, 1);
+	return (i);
 }
 
 void	get_r(char *line, t_map *map)

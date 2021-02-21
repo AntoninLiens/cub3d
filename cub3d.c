@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 14:58:11 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/21 12:27:20 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/21 13:33:10 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,10 @@ void	init_map(char **argv)
 	if (!(fd = open(argv[1], O_RDONLY)))
 		return ;
 	while (get_next_line(fd, &line) && i < 8)
-	{
-		i += get_r_f_c(line, map);
-		if (line[0] == 'N' && line[1] == 'O' && ++i)
-			map.no = get_textures(line, 2);
-		else if (line[0] == 'S' && line[1] == 'O' && ++i)
-			map.so = get_textures(line, 2);
-		else if (line[0] == 'W' && line[1] == 'E' && ++i)
-			map.we = get_textures(line, 2);
-		else if (line[0] == 'E' && line[1] == 'A' && ++i)
-			map.ea = get_textures(line, 2);
-		else if (line[0] == 'S' && ++i)
-			map.s = get_textures(line, 1);
-	}
+		i += get_infos_map(line, &map);
+	printf("i = %d\n", i);
+	printf("%d\n%d\n%d\n%d\n", map.r1, map.r2, map.f, map.c);
+	printf("%s\n%s\n%s\n%s\n%s\n", map.so, map.we, map.no, map.ea, map.s);
 	close(fd);
 }
 
