@@ -6,7 +6,7 @@
 #    By: aliens <aliens@students.s19.be>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/10 17:50:40 by aliens            #+#    #+#              #
-#    Updated: 2021/02/17 16:58:15 by aliens           ###   ########.fr        #
+#    Updated: 2021/02/23 14:41:42 by aliens           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ RESET	= 	$(shell tput -Txterm sgr0)
 
 SRCS	=	cub3d.c\
 			parse_map/map_infos.c\
+			parse_map/int_map.c\
 			cub3d_move/cub3d_move_1.c\
 			cub3d_move/cub3d_move_2.c\
 			paint2d/cub3d_display.c\

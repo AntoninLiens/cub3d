@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 19:26:00 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/21 11:55:29 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/23 13:52:52 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		key_hook(int keycode, t_params *vars)
 void	turn_left(t_params *vars)
 {
 	player(*vars, 0);
-	vars->angle += 45;
+	vars->angle += 15;
 	vars->angle %= 360;
 	player(*vars, 100100100);
 }
@@ -44,7 +44,7 @@ void	turn_left(t_params *vars)
 void	turn_right(t_params *vars)
 {
 	player(*vars, 0);
-	vars->angle -= 45;
+	vars->angle -= 15;
 	vars->angle %= 360;
 	player(*vars, 100100100);
 }
