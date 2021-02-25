@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 14:58:11 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/25 14:20:21 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/25 16:13:58 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,3 @@ int		main(int argc, char **argv)
 	init_params();
 	return (0);
 }
-
-/*make && gcc -lmlx -framework OpenGL -framework AppKit cub3d.a && ./a.out map.cub*/

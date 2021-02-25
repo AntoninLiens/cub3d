@@ -6,7 +6,7 @@
 #    By: aliens <aliens@students.s19.be>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/10 17:50:40 by aliens            #+#    #+#              #
-#    Updated: 2021/02/23 14:41:42 by aliens           ###   ########.fr        #
+#    Updated: 2021/02/25 16:12:09 by aliens           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ $(NAME):	$(OBJS)
 			@cp libft/libft.a ./$(NAME)
 			@ar -rcs $(NAME) $(OBJS)
 			@echo "$(GREEN)cub3d.a created$(RESET)"
+			@$(CC) -lmlx -framework OpenGL -framework AppKit $(NAME)
 
 .c.o:
 			@$(CC) $(CFLAGS) -c -I./ $< -o $(<:.c=.o)
