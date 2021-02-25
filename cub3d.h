@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/23 16:54:57 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/25 14:11:03 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ typedef struct	s_map
 	char	*ea;
 	char	*s;
 	int		**map;
+	int		h_map;
+	int		w_map;
 }				t_map;
 
 void			init_params(void);
@@ -52,12 +54,13 @@ void			init_map(char **argv);
 int				get_infos_map(char *line, t_map *map);
 char			*get_textures(char *line, int i);
 void			get_int_map(t_list *charmap, t_map *map);
-int				*int_line(t_list *charmap);
+int				*int_line(t_list *charmap, t_map *map);
 void			get_r(char *line, t_map *map);
 void			get_f(char *line, t_map *map);
 void			get_c(char *line, t_map *map);
 
 int				create_rgb(int r, int g, int b);
+int				close_win(t_params *vars);
 void			player(t_params vars, int color);
 void			line(t_params *vars, int color, float j);
 

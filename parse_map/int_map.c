@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 13:35:03 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/23 17:57:05 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/25 14:19:41 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,46 +16,41 @@ void    get_int_map(t_list *charmap, t_map *map)
 {
     int i;
 	int j;
-	int size;
 
-    i = ft_lstsize(charmap);
-	j = -1;
-	size = i;
-    //printf("%d", i);
-    if (!(map->map = (int **)malloc(sizeof(int *) * i)))
+	i = -1;
+	map->h_map = ft_lstsize(charmap);
+    if (!(map->map = (int **)malloc(sizeof(int *) * map->h_map)))
         return ;
-    while (++j < i)
+    while (++i < map->h_map)
     {
-        map->map[i] = int_line(charmap);
+        map->map[i] = int_line(charmap, map);
 		charmap = charmap->next;
     }
-    //printf("%s", charmap->content);
-	//printf("%p", charmap->next);
-	printf("%d\n", map->map[2][2]);
-	printf("coucou\n");
-	i = 0;
-	while (++i < size)
+	i = -1;
+	while (++i < map->h_map)
 	{
-		j = 0;
+		j = -1;
 		while (map->map[i][++j] != -48)
-		{
 			printf("%d", map->map[i][j]);
-		}
 		printf("\n");
 	}
+	printf("w_map : %d\n", map->w_map);
+	printf("h_map : %d\n", map->h_map);
 }
 
-int     *int_line(t_list *charmap)
+int     *int_line(t_list *charmap, t_map *map)
 {
 	int		i;
 	char	*str;
     int		*map_line;
 
 	i = ft_strlen(charmap->content) + 1;
+	if (i > map->w_map)
+		map->w_map = i;
 	if (!(map_line = (int *)malloc(sizeof(int) * i)))
 		return (0);
 	str = charmap->content;
-	while (--i)
+	while (i--)
 		map_line[i] = (int)str[i] - '0';
 	return (map_line);
 }

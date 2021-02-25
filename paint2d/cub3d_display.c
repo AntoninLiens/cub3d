@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 16:21:19 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/21 12:20:22 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/25 14:01:05 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 int		create_rgb(int r, int g, int b)
 {
 	return (r << 16 | g << 8 | b);
+}
+
+int		close_win(t_params *vars)
+{
+	(void)vars;
+	exit(1);
+	return (0);
 }
 
 void	player(t_params vars, int color)
