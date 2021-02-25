@@ -6,26 +6,26 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 13:35:03 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/25 14:19:41 by aliens           ###   ########.fr       */
+/*   Updated: 2021/02/25 14:27:17 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void    get_int_map(t_list *charmap, t_map *map)
+void	get_int_map(t_list *charmap, t_map *map)
 {
-    int i;
+	int i;
 	int j;
 
 	i = -1;
 	map->h_map = ft_lstsize(charmap);
-    if (!(map->map = (int **)malloc(sizeof(int *) * map->h_map)))
-        return ;
-    while (++i < map->h_map)
-    {
-        map->map[i] = int_line(charmap, map);
+	if (!(map->map = (int **)malloc(sizeof(int *) * map->h_map)))
+		return ;
+	while (++i < map->h_map)
+	{
+		map->map[i] = int_line(charmap, map);
 		charmap = charmap->next;
-    }
+	}
 	i = -1;
 	while (++i < map->h_map)
 	{
@@ -38,11 +38,11 @@ void    get_int_map(t_list *charmap, t_map *map)
 	printf("h_map : %d\n", map->h_map);
 }
 
-int     *int_line(t_list *charmap, t_map *map)
+int		*int_line(t_list *charmap, t_map *map)
 {
 	int		i;
 	char	*str;
-    int		*map_line;
+	int		*map_line;
 
 	i = ft_strlen(charmap->content) + 1;
 	if (i > map->w_map)
