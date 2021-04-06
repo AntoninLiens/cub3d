@@ -6,15 +6,15 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/25 14:11:03 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/06 13:54:10 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "./libft/libft.h"
-# include "./get_next_line/get_next_line.h"
+# include "./libft/includes/libft.h"
+# include "./libft/includes/get_next_line.h"
 # include <mlx.h>
 # include <stdlib.h>
 # include <stdio.h>

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aliens <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: aliens <aliens@students.s19.be>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/18 16:23:35 by aliens            #+#    #+#              #
-#    Updated: 2020/12/28 18:30:29 by aliens           ###   ########.fr        #
+#    Updated: 2021/03/19 13:45:16 by aliens           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,54 +15,57 @@ GREEN		= $(shell tput -Txterm setaf 2)
 PURPLE		= $(shell tput -Txterm setaf 5)
 RESET		= $(shell tput -Txterm sgr0)
 
-SRCS		=	ft_atoi.c\
-				ft_isalpha.c\
-				ft_itoa.c\
-				ft_memcpy.c\
-				ft_putendl_fd.c\
-				ft_strchr.c\
-				ft_strlcpy.c\
-				ft_strnstr.c\
-				ft_tolower.c\
-				ft_bzero.c\
-				ft_isascii.c\
-				ft_memccpy.c\
-				ft_memmove.c\
-				ft_putnbr_fd.c\
-				ft_strdup.c\
-				ft_strlen.c\
-				ft_strrchr.c\
-				ft_toupper.c\
-				ft_calloc.c\
-				ft_isdigit.c\
-				ft_memchr.c\
-				ft_memset.c\
-				ft_putstr_fd.c\
-				ft_strjoin.c\
-				ft_strmapi.c\
-				ft_strtrim.c\
-				ft_isalnum.c\
-				ft_isprint.c\
-				ft_memcmp.c\
-				ft_putchar_fd.c\
-				ft_split.c\
-				ft_strlcat.c\
-				ft_strncmp.c\
-				ft_substr.c
+LIBFTSRCS	=	./libft/ft_atoi.c\
+				./libft/ft_isalpha.c\
+				./libft/ft_itoa.c\
+				./libft/ft_memcpy.c\
+				./libft/ft_putendl_fd.c\
+				./libft/ft_strchr.c\
+				./libft/ft_strlcpy.c\
+				./libft/ft_strnstr.c\
+				./libft/ft_tolower.c\
+				./libft/ft_bzero.c\
+				./libft/ft_isascii.c\
+				./libft/ft_memccpy.c\
+				./libft/ft_memmove.c\
+				./libft/ft_putnbr_fd.c\
+				./libft/ft_strdup.c\
+				./libft/ft_strlen.c\
+				./libft/ft_strrchr.c\
+				./libft/ft_toupper.c\
+				./libft/ft_calloc.c\
+				./libft/ft_isdigit.c\
+				./libft/ft_memchr.c\
+				./libft/ft_memset.c\
+				./libft/ft_putstr_fd.c\
+				./libft/ft_strjoin.c\
+				./libft/ft_strmapi.c\
+				./libft/ft_strtrim.c\
+				./libft/ft_isalnum.c\
+				./libft/ft_isprint.c\
+				./libft/ft_memcmp.c\
+				./libft/ft_putchar_fd.c\
+				./libft/ft_split.c\
+				./libft/ft_strlcat.c\
+				./libft/ft_strncmp.c\
+				./libft/ft_substr.c\
+				./libft/ft_ternaries.c\
+				./libft/ft_lstadd_back.c\
+				./libft/ft_lstclear.c\
+				./libft/ft_lstiter.c\
+				./libft/ft_lstmap.c\
+				./libft/ft_lstsize.c\
+				./libft/ft_lstadd_front.c\
+				./libft/ft_lstdelone.c\
+				./libft/ft_lstlast.c\
+				./libft/ft_lstnew.c
 
-SRCS_BONUS	=	ft_lstadd_back.c\
-				ft_lstclear.c\
-				ft_lstiter.c\
-				ft_lstmap.c\
-				ft_lstsize.c\
-				ft_lstadd_front.c\
-				ft_lstdelone.c\
-				ft_lstlast.c\
-				ft_lstnew.c
+GNLSRCS		=	./gnl/get_next_line.c\
+				./gnl/get_next_line_utils.c
 
-OBJS		=	$(SRCS:.c=.o)
+LIBFTOBJS	=	$(LIBFTSRCS:.c=.o)
 
-OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
+GNLOBJS		=	$(GNLSRCS:.c=.o)
 
 NAME		=	libft.a
 
@@ -72,15 +75,9 @@ CFLAGS		=	-Wall -Werror -Wextra
 
 RM			=	rm -f
 
-$(NAME):	$(OBJS)
-			@ar -rcs $(NAME) $(OBJS)
+$(NAME):	$(LIBFTOBJS) $(GNLOBJS)
+			@ar -rcs $(NAME) $(LIBFTOBJS) $(GNLOBJS)
 			@echo "$(GREEN)libft.a created$(RESET)"
-
-bonus:		$(OBJS_BONUS)
-			@ar -rcs $(NAME) $(OBJS_BONUS)
-			@echo "$(GREEN)ft_bonus -> libft.a$(RESET)"
-		
-full:		$(NAME) bonus
 
 .c.o:
 			@$(CC) $(CFLAGS) -c -I./ $< -o $(<:.c=.o)
@@ -89,7 +86,7 @@ full:		$(NAME) bonus
 all:		$(NAME)
 
 clean:
-			@$(RM) $(OBJS) $(OBJS_BONUS)
+			@$(RM) $(LIBFTOBJS) $(GNLOBJS)
 			@echo "$(RED)objects erased$(RESET)"
 
 fclean:		clean

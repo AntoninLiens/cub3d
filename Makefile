@@ -6,7 +6,7 @@
 #    By: aliens <aliens@students.s19.be>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/10 17:50:40 by aliens            #+#    #+#              #
-#    Updated: 2021/02/25 16:12:09 by aliens           ###   ########.fr        #
+#    Updated: 2021/04/06 13:58:07 by aliens           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,6 @@ SRCS	=	cub3d.c\
 			cub3d_move/cub3d_move_1.c\
 			cub3d_move/cub3d_move_2.c\
 			paint2d/cub3d_display.c\
-			get_next_line/get_next_line.c\
-			get_next_line/get_next_line_utils.c\
 
 OBJS	=	$(SRCS:.c=.o)
 
@@ -38,7 +36,7 @@ RM		=	rm -f
 LIBFT	=	./libft
 
 $(NAME):	$(OBJS)
-			@make full -C $(LIBFT)
+			@make -C $(LIBFT)
 			@cp libft/libft.a ./$(NAME)
 			@ar -rcs $(NAME) $(OBJS)
 			@echo "$(GREEN)cub3d.a created$(RESET)"
