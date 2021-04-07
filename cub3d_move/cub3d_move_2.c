@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 20:00:36 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/21 12:02:37 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/06 15:44:19 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,10 @@ void	ft_w(t_params *vars)
 	float dx;
 	float dy;
 
-	player(*vars, 0);
 	dx = cos(M_PI / 180 * vars->angle) * 10;
 	dy = sin(M_PI / 180 * vars->angle) * 10;
 	vars->px += dx;
 	vars->py -= dy;
-	player(*vars, 100100100);
 }
 
 void	ft_a(t_params *vars)
@@ -30,12 +28,10 @@ void	ft_a(t_params *vars)
 	float dx;
 	float dy;
 
-	player(*vars, 0);
 	dx = cos(M_PI / 180 * vars->angle) * 10;
 	dy = sin(M_PI / 180 * vars->angle) * 10;
 	vars->px -= dy;
 	vars->py -= dx;
-	player(*vars, 100100100);
 }
 
 void	ft_s(t_params *vars)
@@ -43,12 +39,10 @@ void	ft_s(t_params *vars)
 	float dx;
 	float dy;
 
-	player(*vars, 0);
 	dx = cos(M_PI / 180 * vars->angle) * 10;
 	dy = sin(M_PI / 180 * vars->angle) * 10;
 	vars->px -= dx;
 	vars->py += dy;
-	player(*vars, 100100100);
 }
 
 void	ft_d(t_params *vars)
@@ -56,10 +50,8 @@ void	ft_d(t_params *vars)
 	float dx;
 	float dy;
 
-	player(*vars, 0);
 	dx = cos(M_PI / 180 * vars->angle) * 10;
 	dy = sin(M_PI / 180 * vars->angle) * 10;
 	vars->px += dy;
 	vars->py += dx;
-	player(*vars, 100100100);
 }

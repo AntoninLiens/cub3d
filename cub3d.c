@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 14:58:11 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/25 16:13:58 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/07 15:49:15 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ void	init_params(void)
 	vars.angle = 90;
 	vars.mlx = mlx_init();
 	vars.win = mlx_new_window(vars.mlx, 1920, 1080, "game of thrones");
-	player(vars, 100100100);
+	vars.img = mlx_new_image(vars.mlx, 1920, 1080);
+	vars.addr = mlx_get_data_addr(vars.img, &vars.bpp, &vars.ll, &vars.endian);
+	player(&vars, 100100100);
 	mlx_hook(vars.win, 2, 1L << 0, key_hook, &vars);
 	mlx_hook(vars.win, 17, 1L << 17, close_win, &vars);
 	mlx_loop(vars.mlx);

@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 19:26:00 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/23 13:52:52 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/07 15:51:03 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		key_hook(int keycode, t_params *vars)
 {
-	player(*vars, 0);
+	player(vars, 0);
 	if (keycode == 53)
 		exit(1);
 	else if (keycode == 13)
@@ -29,22 +29,18 @@ int		key_hook(int keycode, t_params *vars)
 		turn_left(vars);
 	else if (keycode == 124)
 		turn_right(vars);
-	player(*vars, 100100100);
+	player(vars, 100100100);
 	return (0);
 }
 
 void	turn_left(t_params *vars)
 {
-	player(*vars, 0);
 	vars->angle += 15;
 	vars->angle %= 360;
-	player(*vars, 100100100);
 }
 
 void	turn_right(t_params *vars)
 {
-	player(*vars, 0);
 	vars->angle -= 15;
 	vars->angle %= 360;
-	player(*vars, 100100100);
 }

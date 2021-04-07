@@ -6,7 +6,7 @@
 #    By: aliens <aliens@students.s19.be>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/10 17:50:40 by aliens            #+#    #+#              #
-#    Updated: 2021/04/06 13:58:07 by aliens           ###   ########.fr        #
+#    Updated: 2021/04/07 15:41:26 by aliens           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRCS	=	cub3d.c\
 			parse_map/int_map.c\
 			cub3d_move/cub3d_move_1.c\
 			cub3d_move/cub3d_move_2.c\
-			paint2d/cub3d_display.c\
+			paint2d/cub2d_display.c\
 
 OBJS	=	$(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/06 13:54:10 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/07 15:48:11 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ typedef struct	s_params
 {
 	void	*mlx;
 	void	*win;
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		ll;
+	int		endian;
 	int		px;
 	int		py;
 	int		angle;
@@ -61,7 +66,8 @@ void			get_c(char *line, t_map *map);
 
 int				create_rgb(int r, int g, int b);
 int				close_win(t_params *vars);
-void			player(t_params vars, int color);
+void			put_pixel(t_params *vars, int x, int y, int color);
+void			player(t_params *vars, int color);
 void			line(t_params *vars, int color, float j);
 
 int				key_hook(int keycode, t_params *vars);
