@@ -6,18 +6,18 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 16:21:19 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/07 15:55:41 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/07 17:03:48 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int		create_rgb(int r, int g, int b)
+int	create_rgb(int r, int g, int b)
 {
 	return (r << 16 | g << 8 | b);
 }
 
-int		close_win(t_params *vars)
+int	close_win(t_params *vars)
 {
 	(void)vars;
 	exit(1);

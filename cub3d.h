@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/07 15:48:11 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/07 17:02:23 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 
-typedef struct	s_params
+typedef struct s_params
 {
 	void	*mlx;
 	void	*win;
@@ -37,7 +37,7 @@ typedef struct	s_params
 	int		angle;
 }				t_params;
 
-typedef struct	s_map
+typedef struct s_map
 {
 	int		r1;
 	int		r2;

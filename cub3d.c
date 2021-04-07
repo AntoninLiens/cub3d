@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 14:58:11 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/07 15:49:15 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/07 17:01:46 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_params(void)
 {
-	t_params vars;
+	t_params	vars;
 
 	vars.px = 960;
 	vars.py = 540;
@@ -40,7 +40,8 @@ void	init_map(char **argv)
 	i = 0;
 	map.w_map = 0;
 	charmap = NULL;
-	if (!(fd = open(argv[1], O_RDONLY)))
+	fd = open(argv[1], O_RDONLY);
+	if (!fd)
 		return ;
 	while (get_next_line(fd, &line) && i < 8)
 		i += get_infos_map(line, &map);
@@ -52,7 +53,7 @@ void	init_map(char **argv)
 	close(fd);
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	if (argc <= 0)
 		return (0);

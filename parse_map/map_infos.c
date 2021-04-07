@@ -6,15 +6,15 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 17:44:23 by aliens            #+#    #+#             */
-/*   Updated: 2021/02/21 13:32:59 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/07 17:06:17 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int		get_infos_map(char *line, t_map *map)
+int	get_infos_map(char *line, t_map *map)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (line[0] == 'R' && ++i)

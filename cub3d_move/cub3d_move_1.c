@@ -6,13 +6,13 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 19:26:00 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/07 15:51:03 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/07 17:02:44 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int		key_hook(int keycode, t_params *vars)
+int	key_hook(int keycode, t_params *vars)
 {
 	player(vars, 0);
 	if (keycode == 53)
