@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/07 17:02:23 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/08 13:22:22 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct s_map
 	int		w_map;
 }				t_map;
 
-void			init_params(void);
+void			init_params(t_map *map);
 
 void			init_map(char **argv);
 int				get_infos_map(char *line, t_map *map);

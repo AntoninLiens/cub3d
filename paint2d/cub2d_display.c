@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 16:21:19 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/07 17:03:48 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/08 14:21:09 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	player(t_params *vars, int color)
 	}
 	if (color)
 		color = 150150150;
-	i = -45;
-	while (i <= 45)
+	i = -30;
+	while (i <= 30)
 	{
 		i++;
 		line(vars, color, i);
@@ -64,6 +64,6 @@ void	line(t_params *vars, int color, float j)
 	i = -1;
 	dx = cos(M_PI / 180 * (float)(vars->angle + j));
 	dy = sin(M_PI / 180 * (float)(vars->angle + j));
-	while (++i < 1111)
+	while (++i < 500)
 		put_pixel(vars, vars->px + (i * dx), vars->py - (i * dy), color);
 }

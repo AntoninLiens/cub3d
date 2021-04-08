@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 13:35:03 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/07 17:05:55 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/08 13:27:45 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	*int_line(t_list *charmap, t_map *map)
 	i = ft_strlen(charmap->content) + 1;
 	if (i > map->w_map)
 		map->w_map = i;
-	map->map = (int **)malloc(sizeof(int *) * map->h_map);
+	map_line = (int *)malloc(sizeof(int) * i);
 	if (!map_line)
 		return (0);
 	str = charmap->content;

@@ -6,13 +6,13 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 14:58:11 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/07 17:01:46 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/08 13:22:02 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	init_params(void)
+void	init_params(t_map *map)
 {
 	t_params	vars;
 
@@ -20,8 +20,8 @@ void	init_params(void)
 	vars.py = 540;
 	vars.angle = 90;
 	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 1920, 1080, "game of thrones");
-	vars.img = mlx_new_image(vars.mlx, 1920, 1080);
+	vars.win = mlx_new_window(vars.mlx, map->r1, map->r2, "game of thrones");
+	vars.img = mlx_new_image(vars.mlx, map->r1, map->r2);
 	vars.addr = mlx_get_data_addr(vars.img, &vars.bpp, &vars.ll, &vars.endian);
 	player(&vars, 100100100);
 	mlx_hook(vars.win, 2, 1L << 0, key_hook, &vars);
@@ -50,6 +50,7 @@ void	init_map(char **argv)
 	printf("%d\n%d\n%d\n%d\n", map.r1, map.r2, map.f, map.c);
 	printf("%s\n%s\n%s\n%s\n%s\n", map.so, map.we, map.no, map.ea, map.s);
 	get_int_map(charmap, &map);
+	init_params(&map);
 	close(fd);
 }
 
@@ -58,6 +59,5 @@ int	main(int argc, char **argv)
 	if (argc <= 0)
 		return (0);
 	init_map(argv);
-	init_params();
 	return (0);
 }

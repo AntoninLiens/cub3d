@@ -6,7 +6,7 @@
 #    By: aliens <aliens@students.s19.be>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/10 17:50:40 by aliens            #+#    #+#              #
-#    Updated: 2021/04/07 15:41:26 by aliens           ###   ########.fr        #
+#    Updated: 2021/04/08 13:39:50 by aliens           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,4 +63,4 @@ fclean:		clean
 re:			fclean all
 			@echo "$(GREEN)Restart OK!$(RESET)"
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re allup .c.o
