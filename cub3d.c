@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 14:58:11 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/08 13:22:02 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/12 14:57:11 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	init_params(t_map *map)
 	vars.img = mlx_new_image(vars.mlx, map->r1, map->r2);
 	vars.addr = mlx_get_data_addr(vars.img, &vars.bpp, &vars.ll, &vars.endian);
 	player(&vars, 100100100);
+	display_map(map, &vars);
 	mlx_hook(vars.win, 2, 1L << 0, key_hook, &vars);
 	mlx_hook(vars.win, 17, 1L << 17, close_win, &vars);
 	mlx_loop(vars.mlx);

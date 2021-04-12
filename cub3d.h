@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/08 13:22:22 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/12 14:57:02 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int				create_rgb(int r, int g, int b);
 int				close_win(t_params *vars);
 void			put_pixel(t_params *vars, int x, int y, int color);
 void			player(t_params *vars, int color);
+void			display_map(t_map *map, t_params *vars);
 void			line(t_params *vars, int color, float j);
 
 int				key_hook(int keycode, t_params *vars);
