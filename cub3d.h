@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/12 14:57:02 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/16 15:10:38 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,6 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/stat.h>
-
-typedef struct s_params
-{
-	void	*mlx;
-	void	*win;
-	void	*img;
-	char	*addr;
-	int		bpp;
-	int		ll;
-	int		endian;
-	int		px;
-	int		py;
-	int		angle;
-}				t_params;
 
 typedef struct s_map
 {
@@ -53,9 +39,35 @@ typedef struct s_map
 	int		w_map;
 }				t_map;
 
-void			init_params(t_map *map);
+typedef struct s_param
+{
+	void	*mlx;
+	void	*win;
+	int		px;
+	int		py;
+	int		angle;
+}				t_param;
 
-void			init_map(char **argv);
+typedef struct s_img
+{
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		ll;
+	int		endian;
+}				t_img;
+
+typedef struct s_cub
+{
+	t_map	*map;
+	t_param	*vars;
+	t_img	*img;
+	t_list	*charmap;
+}				t_cub;
+
+void			init_cub(t_cub *cub, char **argv);
+void			init_map(char **argv, t_cub *cub);
+
 int				get_infos_map(char *line, t_map *map);
 char			*get_textures(char *line, int i);
 void			get_int_map(t_list *charmap, t_map *map);
@@ -65,18 +77,19 @@ void			get_f(char *line, t_map *map);
 void			get_c(char *line, t_map *map);
 
 int				create_rgb(int r, int g, int b);
-int				close_win(t_params *vars);
-void			put_pixel(t_params *vars, int x, int y, int color);
-void			player(t_params *vars, int color);
-void			display_map(t_map *map, t_params *vars);
-void			line(t_params *vars, int color, float j);
+int				close_win(t_param *vars);
+int				is_wall(t_map *map, int x, int y);
+void			put_pixel(t_img *img, int x, int y, int color);
+void			player(t_cub *cub, int color);
+void			display_map(t_cub *cub);
+void			line(t_cub *cub, int color, float j);
 
-int				key_hook(int keycode, t_params *vars);
-void			turn_left(t_params *vars);
-void			turn_right(t_params *vars);
-void			ft_w(t_params *vars);
-void			ft_a(t_params *vars);
-void			ft_s(t_params *vars);
-void			ft_d(t_params *vars);
+int				key_hook(int keycode, t_cub *cub);
+void			turn_left(t_param *vars);
+void			turn_right(t_param *vars);
+void			ft_w(t_param *vars);
+void			ft_a(t_param *vars);
+void			ft_s(t_param *vars);
+void			ft_d(t_param *vars);
 
 #endif

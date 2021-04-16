@@ -6,40 +6,40 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 19:26:00 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/07 17:02:44 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/16 15:14:42 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int	key_hook(int keycode, t_params *vars)
+int	key_hook(int keycode, t_cub *cub)
 {
-	player(vars, 0);
+	player(cub, 0);
 	if (keycode == 53)
 		exit(1);
 	else if (keycode == 13)
-		ft_w(vars);
+		ft_w(cub->vars);
 	else if (keycode == 0)
-		ft_a(vars);
+		ft_a(cub->vars);
 	else if (keycode == 1)
-		ft_s(vars);
+		ft_s(cub->vars);
 	else if (keycode == 2)
-		ft_d(vars);
+		ft_d(cub->vars);
 	else if (keycode == 123)
-		turn_left(vars);
+		turn_left(cub->vars);
 	else if (keycode == 124)
-		turn_right(vars);
-	player(vars, 100100100);
+		turn_right(cub->vars);
+	player(cub, 100100100);
 	return (0);
 }
 
-void	turn_left(t_params *vars)
+void	turn_left(t_param *vars)
 {
 	vars->angle += 15;
 	vars->angle %= 360;
 }
 
-void	turn_right(t_params *vars)
+void	turn_right(t_param *vars)
 {
 	vars->angle -= 15;
 	vars->angle %= 360;

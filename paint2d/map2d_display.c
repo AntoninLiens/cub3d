@@ -6,13 +6,20 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:21:57 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/12 15:21:21 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/16 14:58:40 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void	square(t_params *vars, int x, int y, int s)
+int	is_wall(t_map *map, int x, int y)
+{
+	if (map->map[y / 68][x / 68])
+		return (1);
+	return (0);
+}
+
+void	square(t_img *img, int x, int y, int s)
 {
 	int	i;
 	int	j;
@@ -22,31 +29,31 @@ void	square(t_params *vars, int x, int y, int s)
 	{
 		j = -1;
 		while (++j < s)
-			put_pixel(vars, x * s + i, y * s + j, 100100100);
+			put_pixel(img, x * s + i, y * s + j, 100100100);
 	}
 }
 
-void	display_map(t_map *map, t_params *vars)
+void	display_map(t_cub *cub)
 {
-	int	s;
+	int s;
 	int	i;
 	int	j;
 
-	s = 0;
 	i = -1;
-	if (map->w_map > map->h_map)
-		s = map->r1 / map->w_map;
+	s = 0;
+	if (cub->map->w_map > cub->map->h_map)
+		s = cub->map->r1 / cub->map->w_map;
 	else
-		s = map->r2 / map->h_map;
-	printf("s = %d", s);
-	while (++i < map->w_map)
+		s = cub->map->r2 / cub->map->h_map;
+	printf("s = %d\n", s);
+	while (++i < cub->map->w_map)
 	{
 		j = -1;
-		while (++j < map->h_map)
+		while (++j < cub->map->h_map)
 		{
-			if (map->map[j][i] == 1)
-				square(vars, i, j, s);
+			if (cub->map->map[j][i] == 1)
+				square(cub->img, i, j, s);
 		}
 	}
-	mlx_put_image_to_window(vars->mlx, vars->win, vars->img, 0, 0);
+	mlx_put_image_to_window(cub->vars->mlx, cub->vars->win, cub->img->img, 0, 0);
 }
