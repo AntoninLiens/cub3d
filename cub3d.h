@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/16 15:10:38 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/16 15:36:31 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_map
 	int		**map;
 	int		h_map;
 	int		w_map;
+	int		wall_size;
 }				t_map;
 
 typedef struct s_param

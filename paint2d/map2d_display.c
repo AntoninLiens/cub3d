@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:21:57 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/16 14:58:40 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/16 15:38:44 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_wall(t_map *map, int x, int y)
 {
-	if (map->map[y / 68][x / 68])
+	if (map->map[y / map->wall_size][x / map->wall_size])
 		return (1);
 	return (0);
 }
@@ -35,24 +35,22 @@ void	square(t_img *img, int x, int y, int s)
 
 void	display_map(t_cub *cub)
 {
-	int s;
 	int	i;
 	int	j;
 
 	i = -1;
-	s = 0;
 	if (cub->map->w_map > cub->map->h_map)
-		s = cub->map->r1 / cub->map->w_map;
+		cub->map->wall_size = cub->map->r1 / cub->map->w_map;
 	else
-		s = cub->map->r2 / cub->map->h_map;
-	printf("s = %d\n", s);
+		cub->map->wall_size = cub->map->r2 / cub->map->h_map;
+	printf("s = %d\n", cub->map->wall_size);
 	while (++i < cub->map->w_map)
 	{
 		j = -1;
 		while (++j < cub->map->h_map)
 		{
 			if (cub->map->map[j][i] == 1)
-				square(cub->img, i, j, s);
+				square(cub->img, i, j, cub->map->wall_size);
 		}
 	}
 	mlx_put_image_to_window(cub->vars->mlx, cub->vars->win, cub->img->img, 0, 0);
