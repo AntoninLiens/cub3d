@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 14:58:11 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/16 15:39:18 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/19 15:27:08 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	init_cub(t_cub *cub, char **argv)
 	cub->img = malloc(sizeof(t_img));
 	cub->charmap = malloc(sizeof(t_list));
 	init_map(argv, cub);
-	cub->vars->px = cub->map->r1 / 2;
-	cub->vars->py = cub->map->r2 / 2;
+	cub->vars->px = 100;
+	cub->vars->py = 100;
 	cub->vars->angle = 90;
 	cub->vars->mlx = mlx_init();
 	cub->vars->win = mlx_new_window(cub->vars->mlx, cub->map->r1, cub->map->r2, "game of thrones");

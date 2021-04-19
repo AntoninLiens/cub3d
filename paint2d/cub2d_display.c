@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 16:21:19 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/16 13:50:00 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/19 15:02:58 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,12 @@ void	player(t_cub *cub, int color)
 	int		j;
 
 	i = -1;
-	while (++i < 10)
+	while (++i < cub->map->wall_size / 4)
 	{
 		j = -1;
-		while (++j < 10)
-			put_pixel(cub->img, cub->vars->px + j - 5, cub->vars->py + i - 5, color);
+		while (++j < cub->map->wall_size / 4)
+			put_pixel(cub->img, cub->vars->px + j - cub->map->wall_size / 8 + 1,
+			 cub->vars->py + i - cub->map->wall_size / 8 + 1, color);
 	}
 	if (color)
 		color = 150150150;
@@ -64,7 +65,7 @@ void	line(t_cub *cub, int color, float j)
 	i = -1;
 	dx = 0;
 	dy = 0;
-	while (++i < 500 && !is_wall(cub->map, cub->vars->px + (i * dx), cub->vars->py - (i * dy)))
+	while (++i < 4444 && !is_wall(cub->map, cub->vars->px + (i * dx), cub->vars->py - (i * dy)))
 	{
 		dx = cos(M_PI / 180 * (float)(cub->vars->angle + j));
 		dy = sin(M_PI / 180 * (float)(cub->vars->angle + j));
