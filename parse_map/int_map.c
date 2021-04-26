@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 13:35:03 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/16 13:51:29 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/26 16:17:30 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,21 @@ void	get_int_map(t_list *charmap, t_map *map)
 	i = -1;
 	map->h_map = ft_lstsize(charmap);
 	map->map = (int **)malloc(sizeof(int *) * map->h_map);
-	if (!map->map)
+	map->s_map = (int *)malloc(sizeof(int) * map->h_map);
+	if (!map->map || !map->s_map)
 		return ;
 	while (++i < map->h_map)
 	{
 		map->map[i] = int_line(charmap, map);
+		map->s_map[i] = ft_strlen(charmap->content) + 1;
 		charmap = charmap->next;
+		printf("s_map%d : %d\n", i, map->s_map[i]);
 	}
 	i = -1;
 	while (++i < map->h_map)
 	{
 		j = -1;
-		while (map->map[i][++j] != -48)
+		while (++j < map->s_map[i])
 			printf("%d", map->map[i][j]);
 		printf("\n");
 	}
@@ -45,7 +48,7 @@ int	*int_line(t_list *charmap, t_map *map)
 	char	*str;
 	int		*map_line;
 
-	i = ft_strlen(charmap->content) + 1;
+	i = ft_strlen(charmap->content);
 	if (i > map->w_map)
 		map->w_map = i;
 	map_line = (int *)malloc(sizeof(int) * i);

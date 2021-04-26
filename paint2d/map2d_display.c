@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:21:57 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/19 14:37:50 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/26 16:46:56 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,6 @@ void	display_map(t_cub *cub)
 	int	j;
 
 	i = -1;
-	cub->map->wall_size = cub->map->r1 / cub->map->w_map;
-	if (cub->map->wall_size > cub->map->r2 / cub->map->h_map)
-		cub->map->wall_size = cub->map->r2 / cub->map->h_map;
-	printf("s = %d\n", cub->map->wall_size);
 	while (++i < cub->map->w_map)
 	{
 		j = -1;

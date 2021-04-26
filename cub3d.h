@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/19 14:04:02 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/26 16:52:03 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_map
 	char	*ea;
 	char	*s;
 	int		**map;
+	int		*s_map;
 	int		h_map;
 	int		w_map;
 	int		wall_size;
@@ -68,22 +69,24 @@ typedef struct s_cub
 
 void			init_cub(t_cub *cub, char **argv);
 void			init_map(char **argv, t_cub *cub);
+void			put_pixel(t_img *img, int x, int y, int color);
+int				create_rgb(int r, int g, int b);
+int				close_win(t_param *vars);
 
 int				get_infos_map(char *line, t_map *map);
 char			*get_textures(char *line, int i);
-void			get_int_map(t_list *charmap, t_map *map);
-int				*int_line(t_list *charmap, t_map *map);
 void			get_r(char *line, t_map *map);
 void			get_f(char *line, t_map *map);
 void			get_c(char *line, t_map *map);
+void			get_int_map(t_list *charmap, t_map *map);
+int				*int_line(t_list *charmap, t_map *map);
+void			check_map(t_cub *cub);
+int				get_player_pos(t_cub *cub, int d, int *i);
 
-int				create_rgb(int r, int g, int b);
-int				close_win(t_param *vars);
-int				is_wall(t_map *map, int x, int y);
-void			put_pixel(t_img *img, int x, int y, int color);
 void			player(t_cub *cub, int color);
-void			display_map(t_cub *cub);
 void			line(t_cub *cub, int color, float j);
+void			display_map(t_cub *cub);
+int				is_wall(t_map *map, int x, int y);
 
 int				key_hook(int keycode, t_cub *cub);
 void			turn_left(t_param *vars);
