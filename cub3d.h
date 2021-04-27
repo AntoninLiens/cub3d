@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/27 14:31:09 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/27 18:06:36 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ typedef struct s_param
 {
 	void	*mlx;
 	void	*win;
-	int		px;
-	int		py;
+	float	px;
+	float	py;
 	int		angle;
 }				t_param;
 

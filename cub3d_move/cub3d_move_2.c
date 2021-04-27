@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 20:00:36 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/27 17:55:40 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/27 18:06:45 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_w(t_cub *cub)
 	dy = sin(M_PI / 180 * cub->vars->angle) * 10;
 	cub->vars->px += dx;
 	cub->vars->py -= dy;
+//	printf("%f | %f\n", dx, dy);
 }
 
 void	ft_a(t_cub *cub)
