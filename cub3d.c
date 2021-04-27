@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 14:58:11 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/26 16:47:44 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/27 16:18:26 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,14 @@ void	init_map(char **argv, t_cub *cub)
 		i += get_infos_map(line, cub->map);
 	while (get_next_line(fd, &line))
 		ft_lstadd_back(&cub->charmap, ft_lstnew(line));
-	cub->map->wall_size = cub->map->r1 / cub->map->w_map;
-	if (cub->map->wall_size > cub->map->r2 / cub->map->h_map)
-		cub->map->wall_size = cub->map->r2 / cub->map->h_map;
-	printf("wall_size = %d", cub->map->wall_size);
 	printf("%d\n%d\n%d\n%d\n", cub->map->r1, cub->map->r2, cub->map->f, cub->map->c);
 	printf("%s\n%s\n%s\n%s\n%s\n", cub->map->so, cub->map->we, cub->map->no, cub->map->ea, cub->map->s);
 	get_int_map(cub->charmap, cub->map);
+	cub->map->wall_size = cub->map->r1 / cub->map->w_map;
+	if (cub->map->wall_size > cub->map->r2 / cub->map->h_map)
+		cub->map->wall_size = cub->map->r2 / cub->map->h_map;
+	printf("wall_size = %d\n", cub->map->wall_size);
+	check_map(cub);
 	close(fd);
 }
 
@@ -43,9 +44,8 @@ void	init_cub(t_cub *cub, char **argv)
 	cub->vars = malloc(sizeof(t_param));
 	cub->img = malloc(sizeof(t_img));
 	cub->charmap = malloc(sizeof(t_list));
-	init_map(argv, cub);
 	cub->vars->angle = -1;
-	check_map(cub);
+	init_map(argv, cub);
 	cub->vars->mlx = mlx_init();
 	cub->vars->win = mlx_new_window(cub->vars->mlx, cub->map->r1, cub->map->r2, "game of thrones");
 	cub->img->img = mlx_new_image(cub->vars->mlx, cub->map->r1, cub->map->r2);

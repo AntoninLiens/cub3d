@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/26 16:52:03 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/27 14:31:09 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,9 @@ int				is_wall(t_map *map, int x, int y);
 int				key_hook(int keycode, t_cub *cub);
 void			turn_left(t_param *vars);
 void			turn_right(t_param *vars);
-void			ft_w(t_param *vars);
-void			ft_a(t_param *vars);
-void			ft_s(t_param *vars);
-void			ft_d(t_param *vars);
+void			ft_w(t_cub *cub);
+void			ft_a(t_cub *cub);
+void			ft_s(t_cub *cub);
+void			ft_d(t_cub *cub);
 
 #endif

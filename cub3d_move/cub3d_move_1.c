@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 19:26:00 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/19 15:30:01 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/27 14:31:40 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int	key_hook(int keycode, t_cub *cub)
 	if (keycode == 53)
 		exit(1);
 	else if (keycode == 13)
-		ft_w(cub->vars);
+		ft_w(cub);
 	else if (keycode == 0)
-		ft_a(cub->vars);
+		ft_a(cub);
 	else if (keycode == 1)
-		ft_s(cub->vars);
+		ft_s(cub);
 	else if (keycode == 2)
-		ft_d(cub->vars);
+		ft_d(cub);
 	else if (keycode == 123)
 		turn_left(cub->vars);
 	else if (keycode == 124)

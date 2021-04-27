@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 14:15:47 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/26 16:52:53 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/27 15:51:59 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	check_map(t_cub *cub)
 			cub->map->map[i[0]][i[1]] == 'W' - '0')
 				cub->map->map[i[0]][i[1]] =
 				get_player_pos(cub, cub->map->map[i[0]][i[1]], i);
-			if (cub->map->map[i[0]][i[1]] != 0 &&
+			/*if (cub->map->map[i[0]][i[1]] != 0 &&
 			cub->map->map[i[0]][i[1]] != 1 && cub->map->map[i[0]][i[1]] != 2)
-				exit(1);
+				exit(1);*/
 		}
 	}
 }
@@ -49,5 +49,7 @@ int	get_player_pos(t_cub *cub, int d, int *i)
 		cub->vars->angle = 180;	
 	cub->vars->px = i[0] * cub->map->wall_size - cub->map->wall_size / 2;
 	cub->vars->py = i[1] * cub->map->wall_size - cub->map->wall_size / 2;
+	printf("px = %d\n", cub->vars->px);
+	printf("py = %d\n", cub->vars->py);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 16:21:19 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/19 15:02:58 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/27 15:47:38 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	player(t_cub *cub, int color)
 	{
 		j = -1;
 		while (++j < cub->map->wall_size / 4)
-			put_pixel(cub->img, cub->vars->px + j - cub->map->wall_size / 8 + 1,
-			 cub->vars->py + i - cub->map->wall_size / 8 + 1, color);
+			put_pixel(cub->img, cub->vars->px + j - cub->map->wall_size / 8,
+			 cub->vars->py + i - cub->map->wall_size / 8, color);
 	}
 	if (color)
 		color = 150150150;

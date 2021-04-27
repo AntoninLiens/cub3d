@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:21:57 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/26 16:46:56 by aliens           ###   ########.fr       */
+/*   Updated: 2021/04/27 15:29:18 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	square(t_img *img, int x, int y, int s)
 	{
 		j = -1;
 		while (++j < s)
-			put_pixel(img, x * s + i, y * s + j, 100100100);
+			put_pixel(img, x * s + i, y * s + j, 0xFFFFFF);
 	}
 }
 
