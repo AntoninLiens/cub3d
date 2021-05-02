@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/27 18:06:36 by aliens           ###   ########.fr       */
+/*   Updated: 2021/05/02 16:39:49 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ typedef struct s_param
 {
 	void	*mlx;
 	void	*win;
-	float	px;
-	float	py;
+	double	px;
+	double	py;
 	int		angle;
 }				t_param;
 
@@ -84,7 +84,7 @@ void			check_map(t_cub *cub);
 int				get_player_pos(t_cub *cub, int d, int *i);
 
 void			player(t_cub *cub, int color);
-void			line(t_cub *cub, int color, float j);
+void			line(t_cub *cub, int color, double j);
 void			display_map(t_cub *cub);
 int				is_wall(t_map *map, int x, int y);
 

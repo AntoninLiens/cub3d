@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 16:21:19 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/27 15:47:38 by aliens           ###   ########.fr       */
+/*   Updated: 2021/05/02 18:08:10 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	put_pixel(t_img *img, int x, int y, int color)
 
 void	player(t_cub *cub, int color)
 {
-	float	i;
+	double	i;
 	int		j;
 
 	i = -1;
@@ -42,33 +42,27 @@ void	player(t_cub *cub, int color)
 	{
 		j = -1;
 		while (++j < cub->map->wall_size / 4)
-			put_pixel(cub->img, cub->vars->px + j - cub->map->wall_size / 8,
-			 cub->vars->py + i - cub->map->wall_size / 8, color);
+			put_pixel(cub->img, cub->map->wall_size * cub->vars->px + j - cub->map->wall_size / 8,
+			 cub->map->wall_size * cub->vars->py + i - cub->map->wall_size / 8, 100100100);
 	}
 	if (color)
 		color = 150150150;
 	i = -30;
-	while (i <= 30)
-	{
-		i++;
+	while (++i <= 30)
 		line(cub, color, i);
-	}
 	mlx_put_image_to_window(cub->vars->mlx, cub->vars->win, cub->img->img, 0, 0);
 }
 
-void	line(t_cub *cub, int color, float j)
+void	line(t_cub *cub, int color, double j)
 {
-	float	dx;
-	float	dy;
+	double	dx;
+	double	dy;
 	int		i;
 
 	i = -1;
-	dx = 0;
-	dy = 0;
-	while (++i < 4444 && !is_wall(cub->map, cub->vars->px + (i * dx), cub->vars->py - (i * dy)))
-	{
-		dx = cos(M_PI / 180 * (float)(cub->vars->angle + j));
-		dy = sin(M_PI / 180 * (float)(cub->vars->angle + j));
-		put_pixel(cub->img, cub->vars->px + (i * dx), cub->vars->py - (i * dy), color);
-	}
+	dx = cos(M_PI / 180 * (double)(cub->vars->angle + j));
+	dy = sin(M_PI / 180 * (double)(cub->vars->angle + j));
+	while (++i < 4444 && cub->map->map[(int)(cub->vars->py - i * dy)]
+	[(int)(cub->vars->px + i * dx)] == 0)
+		put_pixel(cub->img, cub->map->wall_size * cub->vars->px + i * dx, cub->map->wall_size * cub->vars->py - i * dy, color);
 }

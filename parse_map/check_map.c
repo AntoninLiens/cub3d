@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 14:15:47 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/27 18:07:08 by aliens           ###   ########.fr       */
+/*   Updated: 2021/05/02 16:25:13 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int	get_player_pos(t_cub *cub, int d, int *i)
 		cub->vars->angle = 0;
 	else if (d == 'W' - '0')
 		cub->vars->angle = 180;	
-	cub->vars->px = i[0] * cub->map->wall_size - cub->map->wall_size / 2;
-	cub->vars->py = i[1] * cub->map->wall_size - cub->map->wall_size / 2;
+	cub->vars->px = i[0] + 0.5;
+	cub->vars->py = i[1] + 0.5;
 	printf("px = %f\n", cub->vars->px);
 	printf("py = %f\n", cub->vars->py);
 	return (0);

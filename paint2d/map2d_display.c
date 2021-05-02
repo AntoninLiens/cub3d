@@ -6,18 +6,11 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:21:57 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/27 15:29:18 by aliens           ###   ########.fr       */
+/*   Updated: 2021/05/02 17:53:14 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-
-int	is_wall(t_map *map, int x, int y)
-{
-	if (map->map[y / map->wall_size][x / map->wall_size])
-		return (1);
-	return (0);
-}
 
 void	square(t_img *img, int x, int y, int s)
 {
