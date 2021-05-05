@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:10:13 by aliens            #+#    #+#             */
-/*   Updated: 2021/05/02 16:39:49 by aliens           ###   ########.fr       */
+/*   Updated: 2021/05/03 12:45:31 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ int				get_player_pos(t_cub *cub, int d, int *i);
 
 void			player(t_cub *cub, int color);
 void			line(t_cub *cub, int color, double j);
-void			display_map(t_cub *cub);
-int				is_wall(t_map *map, int x, int y);
+void			display_map(t_cub *cub, int color);
+void			wall(t_cub *cub, int x, int y, int color);
 
 int				key_hook(int keycode, t_cub *cub);
 void			turn_left(t_param *vars);

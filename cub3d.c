@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 14:58:11 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/27 16:18:26 by aliens           ###   ########.fr       */
+/*   Updated: 2021/05/03 13:29:24 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ void	init_cub(t_cub *cub, char **argv)
 	cub->vars->win = mlx_new_window(cub->vars->mlx, cub->map->r1, cub->map->r2, "game of thrones");
 	cub->img->img = mlx_new_image(cub->vars->mlx, cub->map->r1, cub->map->r2);
 	cub->img->addr = mlx_get_data_addr(cub->img->img, &cub->img->bpp, &cub->img->ll, &cub->img->endian);
-	display_map(cub);
-	player(cub, 100100100);
+	display_map(cub, 0xFFFFFF);
 	mlx_hook(cub->vars->win, 2, 1L << 0, key_hook, cub);
 	mlx_hook(cub->vars->win, 17, 1L << 17, close_win, cub->vars);
 	printf("angle = %d\n", cub->vars->angle);

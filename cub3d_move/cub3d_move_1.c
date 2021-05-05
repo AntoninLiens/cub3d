@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 19:26:00 by aliens            #+#    #+#             */
-/*   Updated: 2021/04/27 14:31:40 by aliens           ###   ########.fr       */
+/*   Updated: 2021/05/05 18:37:40 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	key_hook(int keycode, t_cub *cub)
 		turn_left(cub->vars);
 	else if (keycode == 124)
 		turn_right(cub->vars);
-	player(cub, 100100100);
+	display_map(cub, 0xFFFFFF);
 	return (0);
 }
 

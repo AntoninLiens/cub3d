@@ -6,27 +6,28 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:21:57 by aliens            #+#    #+#             */
-/*   Updated: 2021/05/02 17:53:14 by aliens           ###   ########.fr       */
+/*   Updated: 2021/05/03 13:29:57 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void	square(t_img *img, int x, int y, int s)
+void	wall(t_cub *cub, int x, int y, int color)
 {
 	int	i;
 	int	j;
 
-	i = -1;
-	while (++i < s)
+	i = 0;
+	while (++i < cub->map->wall_size - 1)
 	{
-		j = -1;
-		while (++j < s)
-			put_pixel(img, x * s + i, y * s + j, 0xFFFFFF);
+		j = 0;
+		while (++j < cub->map->wall_size - 1)
+			put_pixel(cub->img, x * cub->map->wall_size + i,
+			y * cub->map->wall_size + j, color);
 	}
 }
 
-void	display_map(t_cub *cub)
+void	display_map(t_cub *cub, int color)
 {
 	int	i;
 	int	j;
@@ -38,8 +39,9 @@ void	display_map(t_cub *cub)
 		while (++j < cub->map->h_map)
 		{
 			if (cub->map->map[j][i] == 1)
-				square(cub->img, i, j, cub->map->wall_size);
+				wall(cub, i, j, color);
 		}
 	}
+	player(cub, 100100100);
 	mlx_put_image_to_window(cub->vars->mlx, cub->vars->win, cub->img->img, 0, 0);
 }
