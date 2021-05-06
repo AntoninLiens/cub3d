@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 16:21:19 by aliens            #+#    #+#             */
-/*   Updated: 2021/05/05 18:43:40 by aliens           ###   ########.fr       */
+/*   Updated: 2021/05/06 15:47:56 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,31 +66,34 @@ void	line(t_cub *cub, int color, double j)
 	int		side;
 	int		mapx;
 	int		mapy;
+	int		hit;
 
 	i = -1;
-	dx = cos(M_PI / 180 * (double)(cub->vars->angle + j));
-	dy = sin(M_PI / 180 * (double)(cub->vars->angle + j));
+	hit = 0;
+	dx = cos(((M_PI / 180)) * (double)(cub->vars->angle + j));
+	dy = sin(((M_PI / 180)) * (double)(cub->vars->angle + j));
 	mapx = (int)cub->vars->px;
 	mapy = (int)cub->vars->py;
-	if (dy == 0)
+	if ((int)dy == 0)
 		distx = 0;
 	else
 	{
-		if (dx == 0)
-			distx = 0;
+		if ((int)dx == 0)
+			distx = 1;
 		else
 			distx = fabs(1 / dx);
 	}
-	if (dx == 0)
+	if ((int)dx == 0)
 		disty = 0;
 	else
 	{
-		if (dy == 0)
-			disty = 0;
+		if ((int)dy == 0)
+			disty = 1;
 		else
 			disty = fabs(1 / dy);
 	}
-	//printf("%f, %f\n", distx, disty);
+	printf("dx = %f, dy = %f\n", dx, dy);
+	printf("distx = %f, disty = %f\n", distx, disty);
 	if (dx < 0)
 	{
 		stepx = -1;
@@ -111,7 +114,7 @@ void	line(t_cub *cub, int color, double j)
 		stepy = 1;
 		nexty = (mapy + 1.0 - cub->vars->py) * disty;
 	}
-	while (cub->map->map[mapy][mapx] != 1)
+	while (hit == 0)
 	{
 		if (nexty < nextx)
 		{
@@ -122,9 +125,11 @@ void	line(t_cub *cub, int color, double j)
 		else
 		{
 			nexty += dy;
-			mapy -= stepy;
+			mapy += stepy;
 			side = 0;
 		}
+		if (cub->map->map[mapy][mapx] > 0)
+			hit = 1;
 	}
 	if (side == 0)
 		dist_to_wall = fabs((cub->vars->px - mapx + (1 - stepx) / 2) / dx);

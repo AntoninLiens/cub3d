@@ -6,7 +6,7 @@
 /*   By: aliens <aliens@students.s19.be>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 20:00:36 by aliens            #+#    #+#             */
-/*   Updated: 2021/05/03 12:57:06 by aliens           ###   ########.fr       */
+/*   Updated: 2021/05/06 15:02:22 by aliens           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_w(t_cub *cub)
 	int	i;
 	int	j;
 
-	dx = cos(M_PI / 180 * cub->vars->angle) * 1 / 3;
-	dy = sin(M_PI / 180 * cub->vars->angle) * 1 / 3;
+	dx = cos((M_PI / 180) * cub->vars->angle) * 1 / 3;
+	dy = sin((M_PI / 180) * cub->vars->angle) * 1 / 3;
 	i = -1;
 	while (++i < 2)
 	{
@@ -41,8 +41,8 @@ void	ft_a(t_cub *cub)
 	int	i;
 	int	j;
 
-	dx = cos(M_PI / 180 * cub->vars->angle) * 1 / 3;
-	dy = sin(M_PI / 180 * cub->vars->angle) * 1 / 3;
+	dx = cos((M_PI / 180) * cub->vars->angle) * 1 / 3;
+	dy = sin((M_PI / 180) * cub->vars->angle) * 1 / 3;
 	i = -1;
 	while (++i < 2)
 	{
@@ -63,8 +63,8 @@ void	ft_s(t_cub *cub)
 	int	i;
 	int	j;
 
-	dx = cos(M_PI / 180 * cub->vars->angle) * 1 / 3;
-	dy = sin(M_PI / 180 * cub->vars->angle) * 1 / 3;
+	dx = cos((M_PI / 180) * cub->vars->angle) * 1 / 3;
+	dy = sin((M_PI / 180) * cub->vars->angle) * 1 / 3;
 	i = -1;
 	while (++i < 2)
 	{
@@ -85,8 +85,8 @@ void	ft_d(t_cub *cub)
 	int	i;
 	int	j;
 
-	dx = cos(M_PI / 180 * cub->vars->angle) * 1 / 3;
-	dy = sin(M_PI / 180 * cub->vars->angle) * 1 / 3;
+	dx = cos((M_PI / 180) * cub->vars->angle) * 1 / 3;
+	dy = sin((M_PI / 180) * cub->vars->angle) * 1 / 3;
 	i = -1;
 	while (++i < 2)
 	{
